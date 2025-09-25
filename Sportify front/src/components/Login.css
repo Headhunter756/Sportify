@@ -1,0 +1,123 @@
+/* Allow full-page scrolling */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+/* Container styling */
+.container {
+  max-width: 600px;
+  margin: 40px auto;
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+/* Header */
+h2 {
+  text-align: center;
+  color: #333;
+}
+
+/* Form layout */
+form {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Labels and inputs */
+label {
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Buttons */
+button {
+  padding: 10px;
+  background: #007BFF;
+  border: none;
+  color: white;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* Link styling */
+.toggle-link {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.toggle-link a {
+  color: #007BFF;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.toggle-link a:hover {
+  text-decoration: underline;
+}
+
+/* Error message */
+.error {
+  color: red;
+  font-size: 13px;
+}
+
+/* Form boxes */
+#login-box,
+#register-box {
+  background-color: white;
+  border-radius: 30px;
+  padding: 35px;
+  width: 46vw;
+  max-width: 600px;
+  margin: auto;
+  box-sizing: border-box;
+}
+
+input[type="button"]:active{
+    transform: scale(0.95);
+}
+input[type="button"]:hover{
+    background-color: rgb(126, 126, 238);
+}
+
+input[type="button"]{
+    background-color: rgb(156, 156, 241);
+    color: white;
+}
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+  .container,
+  #login-box,
+  #register-box {
+    width: 90vw;
+    padding: 20px;
+  }
+
+  input,button {
+    font-size: 12px;
+  }
+}
