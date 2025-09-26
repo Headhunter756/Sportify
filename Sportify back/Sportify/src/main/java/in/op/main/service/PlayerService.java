@@ -3,27 +3,27 @@ package in.op.main.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import in.op.main.entities.User;
+import in.op.main.entities.Player;
 import in.op.main.repo.UserRepo;
 
 @Service
-public class UserService {
+public class PlayerService {
 
 	@Autowired
 	private UserRepo repo;
 	
-	public User register(User user) {
+	public Player register(Player user) {
 		if (!repo.existsByEmail(user.getEmail())) {
-			User u = repo.save(user);
+			Player u = repo.save(user);
 			return u;
 		} else {
 			return null;
 		}
 	}
 	
-	public User login(String email, String password) {
+	public Player login(String email, String password) {
 		if (repo.existsByEmail(email)) {
-			User user = repo.findByEmail(email);
+			Player user = repo.findByEmail(email);
 			if (user.getPassword().equals(password)) {
 				return user;
 			} else {

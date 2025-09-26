@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class User {
+public class Player {
 
 	@Id
 	@Column
@@ -24,9 +24,9 @@ public class User {
 	private String password;
 	@Column
 	@Autowired
-	private Address add;
+	private Address address;
 	
-	public User() {}
+	public Player() {}
 
 	public Long getId() {
 		return id;
@@ -68,11 +68,11 @@ public class User {
 		this.password = password;
 	}
 
-	public Address getAdd() {
-		return add;
+	public Address getAddress() {
+		return address;
 	}
 
-	public void setAdd(Address add) {
-		this.add = add;
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 }
