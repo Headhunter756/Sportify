@@ -12,11 +12,14 @@ const Login = () => {
         const details = {email,password}
         const response = await fetch("http://localhost:8080/auth/login", {
             method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
             body: JSON.stringify(details)
         })
         if (response.ok) {
             const data = await response.json();
-            const token = await data.body.token;
+            const token = await data.token;
             sessionStorage.setItem("token",token)
             navigate("/dashboard")
         }
