@@ -1,7 +1,5 @@
 package in.op.main.entities;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,14 +15,13 @@ public class Player {
 	@Column
 	private String name;
 	@Column
-	private int contact;
+	private Long contact;
 	@Column
 	private String email;
 	@Column
 	private String password;
-	@Column
-	@Autowired
-	private Address address;
+	@Column(length = 500)
+	private String address;
 	
 	public Player() {}
 
@@ -44,11 +41,11 @@ public class Player {
 		this.name = name;
 	}
 
-	public int getContact() {
+	public Long getContact() {
 		return contact;
 	}
 
-	public void setContact(int contact) {
+	public void setContact(Long contact) {
 		this.contact = contact;
 	}
 
@@ -68,11 +65,11 @@ public class Player {
 		this.password = password;
 	}
 
-	public Address getAddress() {
+	public String getAddress() {
 		return address;
 	}
 
-	public void setAddress(Address address) {
+	public void setAddress(String address) {
 		this.address = address;
 	}
 }

@@ -1,6 +1,7 @@
 package in.op.main.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import in.op.main.entities.Player;
@@ -11,9 +12,13 @@ public class PlayerService {
 
 	@Autowired
 	private UserRepo repo;
+	@Autowired
+	private JWTService jwtService;
 	
 	public Player register(Player user) {
 		if (!repo.existsByEmail(user.getEmail())) {
+			user.setId(repo.count()+1);
+			user.setPassword(jwtService.encodePassword(user.getPassword())); ;
 			Player u = repo.save(user);
 			return u;
 		} else {
@@ -24,7 +29,7 @@ public class PlayerService {
 	public Player login(String email, String password) {
 		if (repo.existsByEmail(email)) {
 			Player user = repo.findByEmail(email);
-			if (user.getPassword().equals(password)) {
+			if (jwtService.passwordMatcher(password, user.getPassword())) {
 				return user;
 			} else {
 				user.setName("Password Incorrect");

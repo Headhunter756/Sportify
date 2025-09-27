@@ -41,7 +41,7 @@ public class Config {
 				.formLogin(custom -> custom.disable())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(request -> request
-						.requestMatchers("/auth/**")
+						.requestMatchers("/auth/login","/auth/playerReg")
 						.permitAll()
 						.anyRequest()
 						.authenticated()
@@ -64,12 +64,14 @@ public class Config {
 	
 	@Bean
 	public CorsConfigurationSource source() {
-		CorsConfiguration config = new CorsConfiguration();
-		config.setAllowedHeaders(List.of("Authorization","Content-Type"));
-		config.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
-		config.setAllowedOrigins(List.of("http://localhost:5173/"));
-		UrlBasedCorsConfigurationSource url = new UrlBasedCorsConfigurationSource();
-		url.registerCorsConfiguration("/**", config);
-		return url;
+	    CorsConfiguration config = new CorsConfiguration();
+	    config.setAllowedOrigins(List.of("http://localhost:5173"));
+	    config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+	    config.setAllowedHeaders(List.of("Content-Type", "Authorization", "X-Requested-With"));
+	    config.setAllowCredentials(true); // Important for session/cookie/token handling
+
+	    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+	    source.registerCorsConfiguration("/**", config);
+	    return source;
 	}
 }
