@@ -1,6 +1,8 @@
 package in.op.main.filter;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -25,6 +27,7 @@ public class JwtFilter extends OncePerRequestFilter{
 	private JWTService jwtService;
 	@Autowired
 	private ApplicationContext context;
+	private Logger logger = Logger.getLogger(JwtFilter.class.getName());
 	
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
@@ -43,6 +46,14 @@ public class JwtFilter extends OncePerRequestFilter{
 					authtoken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 					SecurityContextHolder.getContext().setAuthentication(authtoken);
 				}
+			}else {
+				logger.severe("Internal Filter error occured");
+			}
+		}else {
+			if (authHeader==null) {
+				logger.log(Level.WARNING, "AuthHeader is null");
+			} else {
+				logger.log(Level.SEVERE, "AuthHeader is empty");
 			}
 		}
 		filterChain.doFilter(request, response);

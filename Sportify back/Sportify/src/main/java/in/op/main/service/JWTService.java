@@ -44,6 +44,10 @@ public class JWTService {
 		return encoder.encode(password);
 	}
 	
+	public boolean passwordMatcher(String pass, String encodedpass) {
+		return encoder.matches(pass, encodedpass);
+	}
+	
 	public String tokengen(String email) {
 		Map<String, Object> claims = new HashMap<>();
 		return Jwts
