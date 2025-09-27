@@ -1,32 +1,34 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import Home from './components/Home'
-import navimg from './components/Images/nav.png'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './components/Login'
+import Form from './components/Form'
+import Dashboard from "./components/Dashboard"
 
 function App() {
 
-  const [login, setLogin] = useState(false);
+  const [fourm, setFourm] = useState(false);
   const [btntxt, setBtntxt] = useState("Login")
 
   useEffect(() => {
-    if (login) {
+    if (fourm) {
       setBtntxt("Home")
     }
-    else{
+    else {
       setBtntxt("Login")
     }
-  }, [login])
+  }, [fourm])
 
   return (
     <>
       <header>
         <h3>Logo</h3>
         {/* <img src={navimg} alt="nav" id='navimg'/> */}
-        <button id="login" onClick={() =>setLogin(!login)}>{btntxt}</button>
+        <button id="login" onClick={() => setFourm(!fourm)}>{btntxt}</button>
       </header>
       <div className="content">
-        {login ? <Login/>:<Home />}
+        {fourm ? <Form /> : <Home />}  
       </div>
       <footer>
         &copy;Copyright HackOPS <br />
