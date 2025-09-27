@@ -39,7 +39,7 @@ const Turf = () => {
             <option value="Utility Bill">Utility Bill</option>
           </select>
 
-          <label htmlFor="idproof">Add Proof</label>
+          <label htmlFor="idproof">Upload Identity Proof</label>
           <input type="file" name="idproof" id="idproof" accept='.jpg, .jpeg, .png, .pdf' required />
 
           <label htmlFor="turfAddress">Turf Address</label>
@@ -54,7 +54,7 @@ const Turf = () => {
           <label htmlFor="email">E-mail</label>
           <input type="email" id="email" name="email" required />
 
-          <label htmlFor="turfproof">Proof of Turf</label>
+          <label htmlFor="turfproof">Verificaton of Turf</label>
           <input type="file" id="turfproof" name="turfproof" accept=".jpg, .jpeg, .png, .pdf" required />
 
           <button type="submit" >Submit</button>

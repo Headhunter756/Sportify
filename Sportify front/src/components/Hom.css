@@ -1,0 +1,64 @@
+.loc {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+header>div>label {
+    color: white;
+}
+
+.about>h3 {
+    color: #f3eb10;
+    font-size: 30px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    height: 80vh;
+    width: 30vw;
+    gap: 15px;
+    align-items: center;
+}
+
+.about>p {
+    color: white;
+    font-size: 20px;
+}
+
+.forms {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background-color: transparent;
+    color: #fff;
+    height: 180px;
+    justify-content: center;
+}
+
+.box {
+    min-height: 100vh;
+    width: 75vw;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 2rem;
+    background-color: transparent;
+    min-width: 45vw;
+    margin: 10px auto 0px auto;
+    padding: 20px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+
+.body {
+    background-image: url('D:\\Code\\VS code files\\Sportify\\Sportify front\\public\\Images\\bg1.jpg');
+    /* No dot before slash */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+}
