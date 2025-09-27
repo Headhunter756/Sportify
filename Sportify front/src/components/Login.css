@@ -10,6 +10,7 @@ html, body {
 
 /* Container styling */
 .container {
+  min-width: 45vw;
   max-width: 600px;
   margin: 10px auto 0px auto;
   background: #fff;
